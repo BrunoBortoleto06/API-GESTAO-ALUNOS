@@ -1,0 +1,6 @@
+@GerAlunosWIllian_HostAddress = http://localhost:5078
+
+GET {{GerAlunosWIllian_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
