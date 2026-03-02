@@ -25,16 +25,30 @@ namespace GerAlunosWIllian.Application.Services
 
         public async Task AdicionarAsync(CreateAlunoDTO alunoDto)
         {
+
             if (string.IsNullOrWhiteSpace(alunoDto.FirstName))
             {
                 throw new Exception("O primeiro nome é obrigatório.");
             }
 
+            var firstNameLimpo = alunoDto.FirstName.Trim();
+            var emailLimpo = alunoDto.Email.Trim();
+
+            if (firstNameLimpo.Length > 50)
+            {
+                throw new Exception("O primeiro nome deve ter no máximo 50 caracteres.");
+            }
+
+            if (!emailLimpo.EndsWith("@faculdade.edu", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception("O email deve finalizar com @faculdade.edu para ser válido");
+            }
+
             var novoAluno = new Aluno
             {
-                FirstName = alunoDto.FirstName,
-                LastName = alunoDto.LastName,
-                Email = alunoDto.Email
+                FirstName = firstNameLimpo,
+                LastName = alunoDto.LastName.Trim(),
+                Email = emailLimpo
             };
 
             await _alunoRepository.AdicionarAsync(novoAluno);

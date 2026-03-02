@@ -9,5 +9,7 @@ namespace GerAlunosWIllian.Infrastructure.Data
         
         public DbSet<Aluno> Alunos { get; set; }
 
+        public DbSet<Curso> Cursos { get; set; }
+
     }
 }

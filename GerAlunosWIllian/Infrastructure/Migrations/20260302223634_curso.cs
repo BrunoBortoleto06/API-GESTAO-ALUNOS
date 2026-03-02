@@ -5,7 +5,7 @@
 namespace GerAlunosWIllian.Migrations
 {
     /// <inheritdoc />
-    public partial class Key : Migration
+    public partial class curso : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
