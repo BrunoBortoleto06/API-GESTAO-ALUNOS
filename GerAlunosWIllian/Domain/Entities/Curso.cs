@@ -2,6 +2,7 @@
 {
     public class Curso : EntityBase
     {
-        public string Name { get; set; } 
+        public required string Name { get; set; }
+        public ICollection<Aluno> Alunos { get; set; } = new List<Aluno>();
     }
 }
